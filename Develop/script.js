@@ -34,8 +34,8 @@ function generatePassword() {
   if (isNaN(parseInt(pwLength))) {
     alert("Please enter valid number between 8 and 128");
     return "Please try again"
-
-  } else if (pwLength > 128 || pwLength < 8) {
+  }
+ else if(pwLength > 128 || pwLength < 8) {
     alert("Password length must be between 8 and 128 characters");
     return "Please try again";
   }  else{
@@ -65,14 +65,15 @@ function generatePassword() {
    userChar = userChar.concat(specialChar);
   }
 }
-  
+var userFinal = "";
 for( i = 0; i < pwLength; i++){
 
-  var index = Math.floor(Math.random() * userChar.length)
-   var userFinal = userChar[index];
-  userChar.push(userFinal);
- return userFinal
+    // this variable includes the math function with the array the length of the password
+  var index = Math.floor(Math.random() * userChar.length);
+  
+  userFinal += userChar[index];
+//  this merges the empty array with the new character array with the random pw function
 }
-
+return userFinal;
 };
 
