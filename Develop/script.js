@@ -22,7 +22,6 @@ function writePassword() { // this function makes a "password" using the generat
   passwordText.value = password;
   //value is reassigned to be password which is that function, generate password
 }
-// Math.random();
 
 generateBtn.addEventListener("click", writePassword);
 
