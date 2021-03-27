@@ -6,23 +6,12 @@ var numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '<', ':', '>', '}'];
 
-var userPw = [];
+var userChar= [];
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-
 // Add event listener to generate button
 
-
-//once chara number selected - user prompted if password needs lowercase
-// if lower case add to final password
-
-// next should prompt whether uppercase is needed, if so then add to final password
-//else do nothing
-
-
-//next should prompt user and ask if number is needed if so add to final password array
 
 // Write password to the #password input
 function writePassword() { // this function makes a "password" using the generate password function that is not defined just yet 
@@ -33,7 +22,7 @@ function writePassword() { // this function makes a "password" using the generat
   passwordText.value = password;
   //value is reassigned to be password which is that function, generate password
 }
-Math.random();
+// Math.random();
 
 generateBtn.addEventListener("click", writePassword);
 
@@ -49,25 +38,41 @@ function generatePassword() {
   } else if (pwLength > 128 || pwLength < 8) {
     alert("Password length must be between 8 and 128 characters");
     return "Please try again";
-  }
+  }  else{
+
   var Caps = confirm("Do you want your password to include Uppercase Letters?");
   var hasLower = confirm(" Or lowercase letters?");
   var numeros = confirm("how about numbers?");
   var especial = confirm("and lastly, any special characters?");
 
   if (Caps) {
-    userPw.concat(upper);
+   userChar = userChar.concat(upper);
+  //  prompt whether uppercase is needed, if so then add to final password
+
   }
 
   if (hasLower) {
-    userPw.concat(lower);
+    userChar = userChar.concat(lower);
+  //  user prompted if password needs lowercase
+// if lower case add to final password
   }
 
   if (numeros) {
-    userPw.concat(numeric);
+    userChar = userChar.concat(numeric);
   }
 
   if (especial) { 
-    userPw.concat(specialChar);
+   userChar = userChar.concat(specialChar);
   }
+}
+  
+for( i = 0; i < pwLength; i++){
+
+  var index = Math.floor(Math.random() * userChar.length)
+   var userFinal = userChar[index];
+  userChar.push(userFinal);
+ return userFinal
+}
+
+};
 
